@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/{owner}/{repo}/workflows/{workflow_name}/badge.svg)](https://github.com/{owner}/{repo}/actions)
+[![Test](https://github.com/phatjmo/terraform_code_test/workflows/tflint/badge.svg)](https://github.com/phtajmo/terraform_code_test/actions?query=workflow%3Atflint)
 
 # terraform_code_test
 Basic terraform code test demonstrating the build of an S3 bucket, EC2 instance, IAM role and requisite interactions. Built as a module.
