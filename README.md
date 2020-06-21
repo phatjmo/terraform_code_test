@@ -1,4 +1,4 @@
-![tflint](https://github.com/phatjmo/terraform_code_test/workflows/.github/workflows/tflint.yml/badge.svg)
+![tflint](https://github.com/phatjmo/terraform_code_test/workflows/tflint/badge.svg)
 ![tfsec](https://github.com/phatjmo/terraform_code_test/workflows/tfsec/badge.svg)
 
 # terraform_code_test
