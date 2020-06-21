@@ -1,4 +1,5 @@
 ![tflint](https://github.com/phatjmo/terraform_code_test/workflows/.github/workflows/tflint.yml/badge.svg)
+![tfsec](https://github.com/phatjmo/terraform_code_test/workflows/.github/workflows/tfsec.yml/badge.svg)
 
 # terraform_code_test
 Basic terraform code test demonstrating the build of an S3 bucket, EC2 instance, IAM role and requisite interactions. Built as a module.
