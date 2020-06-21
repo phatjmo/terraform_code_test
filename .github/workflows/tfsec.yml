@@ -1,10 +1,10 @@
 name: tfsec
-on: [pull_request]
+on: [push, pull_request]
 jobs:
   tfsec:
     name: runner / tfsec
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Clone repo
         uses: actions/checkout@master
