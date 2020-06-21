@@ -4,18 +4,18 @@ resource "random_pet" "default" {
 }
 
 data "http" "user_ip" {
- url = "http://ipv4.icanhazip.com"
+  url = "http://ipv4.icanhazip.com"
 }
 
 //  The latest Amazon Linux 2 AMI.
 data "aws_ami" "amazon_linux2" {
- most_recent = true
- owners = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
 
- filter {
-   name   = "name"
-   values = ["amzn2-ami-hvm*"]
- }
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm*"]
+  }
 }
 
 data "aws_region" "current" {}
@@ -151,13 +151,13 @@ resource "aws_security_group" "allow_ssh" {
 }
 
 resource "aws_instance" "test" {
-  ami                  = var.ami == null ? data.aws_ami.amazon_linux2.id : var.ami
-  iam_instance_profile = aws_iam_instance_profile.access_bucket.name
-  instance_type        = var.instance_type
-  key_name             = aws_key_pair.keypair.key_name
-  subnet_id            = var.subnet_id == null ? data.aws_subnet.default.id : var.subnet_id
+  ami                         = var.ami == null ? data.aws_ami.amazon_linux2.id : var.ami
+  iam_instance_profile        = aws_iam_instance_profile.access_bucket.name
+  instance_type               = var.instance_type
+  key_name                    = aws_key_pair.keypair.key_name
+  subnet_id                   = var.subnet_id == null ? data.aws_subnet.default.id : var.subnet_id
   associate_public_ip_address = var.make_public
-  security_groups = [ aws_security_group.allow_ssh.id ]
+  security_groups             = [aws_security_group.allow_ssh.id]
 
   tags = {
     Name        = var.instance_name == null ? random_pet.default.id : var.instance_name

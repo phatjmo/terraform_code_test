@@ -15,7 +15,7 @@ variable "availability_zone" {
 variable "instance_name" {
   description = "Value for the Name tag on the created EC2 instance. If none provided, will default to random pet name"
   type        = string
-  default = null
+  default     = null
 }
 
 variable "instance_type" {
@@ -39,7 +39,7 @@ variable "subnet_id" {
 variable "bucket_name" {
   description = "Specify a unique bucket name for this EC2 instance to access, if none provided, will default to random pet name"
   type        = string
-  default = null
+  default     = null
 }
 
 variable "ami" {
@@ -55,7 +55,7 @@ variable "environment" {
 }
 
 variable "make_public" {
-    description = "Should this instance be publically accessible?"
-    type = bool
-    default = true
+  description = "Should this instance be publically accessible?"
+  type        = bool
+  default     = true
 }
