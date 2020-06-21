@@ -1,5 +1,5 @@
 name: tflint
-on: [pull_request]
+on: [push, pull_request]
 jobs:
   tflint:
     runs-on: ubuntu-latest
