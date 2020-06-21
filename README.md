@@ -34,4 +34,14 @@ module "InstanceWithBucket" {
     public_key_path = "~/.ssh/id_rsa.pub"
 
 }
+
+//Print out Module Outputs
+resource "null_resource" "example" {
+    provisioner "local-exec" {
+        inline = [
+            "echo Public IP: ${module.InstanceWithBucket.public_ip}",
+            "echo Bucket Name: ${module.InstanceWithBucket.bucket_name}"
+        ]
+    }
+}
 ```

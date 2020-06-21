@@ -29,3 +29,5 @@ jobs:
         uses: reviewdog/action-tflint@master
         with:
           github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          level: info
