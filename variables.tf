@@ -59,3 +59,9 @@ variable "make_public" {
   type        = bool
   default     = true
 }
+
+variable "ssh_permit" {
+    description = "What CIDR blocks should be allowed to SSH into this instance"
+    type = list(string)
+    default = [ "0.0.0.0/0" ]
+}

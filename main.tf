@@ -3,10 +3,6 @@ resource "random_pet" "default" {
   length = 2
 }
 
-data "http" "user_ip" {
-  url = "http://ipv4.icanhazip.com"
-}
-
 //  The latest Amazon Linux 2 AMI.
 data "aws_ami" "amazon_linux2" {
   most_recent = true
@@ -139,7 +135,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${chomp(data.http.user_ip.body)}/32"]
+    cidr_blocks = var.ssh_permit
   }
 
   egress {
