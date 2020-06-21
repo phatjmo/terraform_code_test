@@ -17,8 +17,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-      #- name: Clone repo
-      #  uses: actions/checkout@master
+      - name: Clone repo
+        uses: actions/checkout@master
 
       # Install latest Terraform manually as
       #  Docker-based GitHub Actions are
