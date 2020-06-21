@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: tflint
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on: [pull_request]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  tflint:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+      #- name: Clone repo
+      #  uses: actions/checkout@master
+
+      # Install latest Terraform manually as
+      #  Docker-based GitHub Actions are
+      #  slow due to lack of caching
+      # Note: Terraform is not needed for tflint
+      - name: Install Brew
+        run: |
+          sudo apt install linuxbrew-wrapper
+          
+      - name: Install Terraform
+        run: |
+          brew install terraform
+
+      # Run init to get module code to be able to use `--module`
+      - name: Terraform init
+        run: |
+          terraform init
+
+      # Minimal example
+      - name: tflint
+        uses: reviewdog/action-tflint@master
+        with:
+          github_token: ${{ secrets.github_token }}
