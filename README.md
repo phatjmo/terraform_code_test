@@ -21,7 +21,9 @@ Create a README.md and document all assumptions you’ve made. Login to the EC2 
 * Provide input variables for flexible implementation with defaults that permit minimal configuration and allows for dependency inversion on key networking infrastructure such as preferred VPC.
 
 ## Examples
-An example has been provided that imports the module and tests both SSH and S3 access using remote-exec
+An [example](./examples/ImportAndTestConnection/README.md) has been provided that imports the module and tests both SSH and S3 access using remote-exec.
+
+#### ImportAndTestConnection: `./examples/ImportAndTestConnection`
 
 ```hcl
 module "InstanceWithBucket" {
