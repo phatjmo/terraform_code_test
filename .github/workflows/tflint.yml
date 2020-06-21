@@ -11,13 +11,16 @@ jobs:
       #  Docker-based GitHub Actions are
       #  slow due to lack of caching
       # Note: Terraform is not needed for tflint
-      - name: Install Brew
+      - name: Install dependencies
         run: |
-          sudo apt install linuxbrew-wrapper
+          sudo apt install wget unzip
           
       - name: Install Terraform
         run: |
-          brew install terraform
+          wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+          unzip terraform_0.12.24_linux_amd64.zip
+          sudo mv terraform /usr/local/bin 
+          terraform version
 
       # Run init to get module code to be able to use `--module`
       - name: Terraform init
