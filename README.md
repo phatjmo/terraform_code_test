@@ -1,4 +1,4 @@
-[![Test](https://github.com/phatjmo/terraform_code_test/workflows/tflint/badge.svg)](https://github.com/phtajmo/terraform_code_test/actions?query=workflow%3Atflint)
+![tflint](https://github.com/phatjmo/terraform_code_test/workflows/.github/workflows/tflint.yml/badge.svg)
 
 # terraform_code_test
 Basic terraform code test demonstrating the build of an S3 bucket, EC2 instance, IAM role and requisite interactions. Built as a module.
@@ -33,5 +33,12 @@ module "InstanceWithBucket" {
     make_public = true
     public_key_path = "~/.ssh/id_rsa.pub"
 
+}
+
+//Print out Module Outputs
+resource "null_resource" "example" {
+    provisioner "local-exec" {
+        command = "echo Public IP: ${module.InstanceWithBucket.public_ip}\n && echo Bucket Name: ${module.InstanceWithBucket.bucket_name}\n"
+    }
 }
 ```
